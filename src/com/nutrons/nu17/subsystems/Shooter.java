@@ -21,6 +21,7 @@ public class Shooter extends Subsystem {
 	public static double SHOOTER_F = 0.1;
 	public static double SHOOTER_CLOSELOOP_RAMP_RATE = 1.0;
 	public static double SHOOTER_RAMP_RATE = 30.0;
+	public static double SHOOTER_RPM = 20.0;
 	public static int SHOOTER_IZONE = 1;
 	
 	/**
