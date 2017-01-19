@@ -112,4 +112,8 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
+	
+	public void updateDashboard() {
+		Robot.shooter.dashboard();
+	}
 }

@@ -5,6 +5,7 @@ import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 import com.nutrons.nu17.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * 
@@ -19,10 +20,10 @@ public class Shooter extends Subsystem {
 	public static double SHOOTER_I = 0.0;
 	public static double SHOOTER_D = 0.0;
 	public static double SHOOTER_F = 0.1;
-	public static double SHOOTER_CLOSELOOP_RAMP_RATE = 1.0;
+	public static double SHOOTER_CLOSELOOP_RAMP_RATE = 0.0;
 	public static double SHOOTER_RAMP_RATE = 0.0;
 	public static double SHOOTER_RPM = 6200.0;
-	public static int SHOOTER_IZONE = 1;
+	public static int SHOOTER_IZONE = 0;
 	
 	/**
 	 * Creates an object of the Shooter class
@@ -87,6 +88,26 @@ public class Shooter extends Subsystem {
      */
     public double getSetpoint() {
     	return this.shooterMotor.getSetpoint();
+    }
+    
+    public void dashboard() {
+    	SmartDashboard.putNumber("shooter_rpm", this.getRpm());
+    	SmartDashboard.putNumber("shooter_setpoint", this.getSetpoint());
+    	SmartDashboard.putNumber("shooter_p", Shooter.SHOOTER_P);
+    	SmartDashboard.putNumber("shooter_i", Shooter.SHOOTER_I);
+    	SmartDashboard.putNumber("shooter_d", Shooter.SHOOTER_D);
+    	SmartDashboard.putNumber("shooter_f", Shooter.SHOOTER_F);
+    	SmartDashboard.putNumber("shooter_closeloop_ramp_rate", Shooter.SHOOTER_CLOSELOOP_RAMP_RATE);
+    	SmartDashboard.putNumber("shooter_ramp_rate", Shooter.SHOOTER_RAMP_RATE);
+    	SmartDashboard.putNumber("shooter_izone", Shooter.SHOOTER_IZONE);
+    	
+    	Shooter.SHOOTER_P = SmartDashboard.getNumber("shooter_p", Shooter.SHOOTER_P);
+    	Shooter.SHOOTER_I = SmartDashboard.getNumber("shooter_i", Shooter.SHOOTER_I);
+    	Shooter.SHOOTER_D = SmartDashboard.getNumber("shooter_d", Shooter.SHOOTER_D);
+    	Shooter.SHOOTER_F = SmartDashboard.getNumber("shooter_f", Shooter.SHOOTER_F);
+    	Shooter.SHOOTER_CLOSELOOP_RAMP_RATE = SmartDashboard.getNumber("shooter_closeloop_ramp_rate", Shooter.SHOOTER_CLOSELOOP_RAMP_RATE);
+    	Shooter.SHOOTER_RAMP_RATE = SmartDashboard.getNumber("shooter_ramp_rate", Shooter.SHOOTER_RAMP_RATE);
+    	Shooter.SHOOTER_IZONE = (int) SmartDashboard.getNumber("shooter_izone", Shooter.SHOOTER_IZONE);
     }
 }
 
