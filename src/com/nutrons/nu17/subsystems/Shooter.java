@@ -71,5 +71,21 @@ public class Shooter extends Subsystem {
     public void stop() {
     	this.setOpenLoop(0);
     }
+    
+    /**
+     * Gets the current shooter's RPM
+     * @return Shooter's RPM
+     */
+    public double getRpm() {
+    	return this.shooterMotor.getSpeed();
+    }
+    
+    /**
+     * Gets the shooter's setpoint
+     * @return Shooter's setpoint
+     */
+    public double getSetpoint() {
+    	return this.shooterMotor.getSetpoint();
+    }
 }
 
