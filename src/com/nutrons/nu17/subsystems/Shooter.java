@@ -91,7 +91,8 @@ public class Shooter extends Subsystem {
     }
     
     public void dashboard() {
-    	SmartDashboard.putNumber("shooter_rpm", this.getRpm());
+    	SmartDashboard.putNumber("shooter_current_rpm", this.getRpm());
+    	SmartDashboard.putNumber("shooter_set_rpm", Shooter.SHOOTER_RPM);
     	SmartDashboard.putNumber("shooter_setpoint", this.getSetpoint());
     	SmartDashboard.putNumber("shooter_p", Shooter.SHOOTER_P);
     	SmartDashboard.putNumber("shooter_i", Shooter.SHOOTER_I);
@@ -107,6 +108,7 @@ public class Shooter extends Subsystem {
     	Shooter.SHOOTER_F = SmartDashboard.getNumber("shooter_f", Shooter.SHOOTER_F);
     	Shooter.SHOOTER_CLOSELOOP_RAMP_RATE = SmartDashboard.getNumber("shooter_closeloop_ramp_rate", Shooter.SHOOTER_CLOSELOOP_RAMP_RATE);
     	Shooter.SHOOTER_RAMP_RATE = SmartDashboard.getNumber("shooter_ramp_rate", Shooter.SHOOTER_RAMP_RATE);
+    	Shooter.SHOOTER_RPM = SmartDashboard.getNumber("shooter_set_rpm", Shooter.SHOOTER_RPM);
     	Shooter.SHOOTER_IZONE = (int) SmartDashboard.getNumber("shooter_izone", Shooter.SHOOTER_IZONE);
     }
 }
