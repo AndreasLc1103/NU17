@@ -2,6 +2,7 @@ package com.nutrons.nu17;
 
 import com.nutrons.nu17.commands.shooter.DisableShooterCmd;
 import com.nutrons.nu17.commands.shooter.EnableShooterCmd;
+import com.nutrons.nu17.commands.shooter.RunShooterCmd;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -16,9 +17,13 @@ public class OI {
 	
 	private Button enableShooterButton = new JoystickButton(this.operatorPad, 1);
 	private Button disableShooterButton = new JoystickButton(this.operatorPad, 2);
+	private Button manualShooterButton = new JoystickButton(this.operatorPad, 3);
 	
 	public OI() {
 		this.enableShooterButton.whenPressed(new EnableShooterCmd());
 		this.disableShooterButton.whenPressed(new DisableShooterCmd());
+		
+		this.manualShooterButton.whenPressed(new RunShooterCmd());
+		this.manualShooterButton.whenReleased(new DisableShooterCmd());
 	}
 }
