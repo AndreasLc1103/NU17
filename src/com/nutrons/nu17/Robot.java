@@ -50,6 +50,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		this.updateDashboard();
 	}
 
 	/**
@@ -85,6 +86,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		this.updateDashboard();
 	}
 
 	@Override
@@ -103,6 +105,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		this.updateDashboard();
 	}
 
 	/**
@@ -111,6 +114,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
+		this.updateDashboard();
 	}
 	
 	public void updateDashboard() {
