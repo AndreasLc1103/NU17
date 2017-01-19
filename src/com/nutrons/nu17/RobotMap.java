@@ -7,5 +7,9 @@ package com.nutrons.nu17;
  * floating around.
  */
 public class RobotMap {
-	public static final int SHOOTER_MOTOR = 1;
+	// OI
+	public static final int OPERATOR_PAD = 0;
+	
+	// PWM
+	public static final int SHOOTER_MOTOR = 1;	
 }
