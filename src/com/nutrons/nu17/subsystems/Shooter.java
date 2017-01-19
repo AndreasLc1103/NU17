@@ -1,6 +1,7 @@
 package com.nutrons.nu17.subsystems;
 
 import com.ctre.CANTalon;
+import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 import com.nutrons.nu17.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -14,8 +15,35 @@ public class Shooter extends Subsystem {
 
 	private CANTalon shooterMotor = new CANTalon(RobotMap.SHOOTER_MOTOR);
 	
+	public static double SHOOTER_P = 0.1;
+	public static double SHOOTER_I = 0.0;
+	public static double SHOOTER_D = 0.0;
+	public static double SHOOTER_F = 0.1;
+	public static double SHOOTER_CLOSELOOP_RAMP_RATE = 1.0;
+	public static double SHOOTER_RAMP_RATE = 30.0;
+	public static int SHOOTER_IZONE = 1;
+	
+	/**
+	 * Creates an object of the Shooter class
+	 * Runs initial setup for shooter's CANTalon
+	 */
+	public Shooter() {
+		this.shooterMotor.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		this.shooterMotor.changeControlMode(TalonControlMode.PercentVbus);
+		this.shooterMotor.setPID(Shooter.SHOOTER_P, Shooter.SHOOTER_I, Shooter.SHOOTER_D, Shooter.SHOOTER_F, Shooter.SHOOTER_IZONE, Shooter.SHOOTER_RAMP_RATE, 0);
+		this.shooterMotor.setProfile(0);
+		this.shooterMotor.reverseSensor(false);
+		this.shooterMotor.reverseOutput(false);
+		this.shooterMotor.enableBrakeMode(false);
+		this.shooterMotor.setVoltageRampRate(Shooter.SHOOTER_RAMP_RATE);
+		this.shooterMotor.clearStickyFaults();
+	}
+	
+	/**
+	 * Initializes the shooter's default command
+	 */
     public void initDefaultCommand() {
-    	
+    	// No default command
     }
     
     /**
