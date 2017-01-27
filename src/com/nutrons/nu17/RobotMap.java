@@ -11,5 +11,7 @@ public class RobotMap {
 	public static final int OPERATOR_PAD = 0;
 	
 	// PWM
-	public static final int SHOOTER_MOTOR = 1;	
+	public static final int SHOOTER_MOTOR = 2;
+	public static final int SHOOTER_MOTOR2= 3;
+	
 }
