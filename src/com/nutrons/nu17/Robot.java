@@ -1,6 +1,7 @@
 
 package com.nutrons.nu17;
 
+import com.nutrons.nu17.subsystems.Feeder;
 import com.nutrons.nu17.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -21,6 +22,7 @@ public class Robot extends IterativeRobot {
 
 	public static final Shooter shooter = new Shooter();
 	public static OI oi;
+	public static final Feeder feeder = new Feeder();
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();

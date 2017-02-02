@@ -1,3 +1,4 @@
+
 package com.nutrons.nu17.subsystems;
 
 import com.ctre.CANTalon;
@@ -20,13 +21,13 @@ public class Shooter extends Subsystem {
 
 	private CANTalon shooterMotor = new CANTalon(RobotMap.SHOOTER_MOTOR);
 	private CANTalon shooterMotor2 = new CANTalon(RobotMap.SHOOTER_MOTOR2);
-	public static double SHOOTER_P = 0.12;
+	public static double SHOOTER_P = 0.05;
 	public static double SHOOTER_I = 0.0;
-	public static double SHOOTER_D = 4.8;
-	public static double SHOOTER_F = 0.0275;
+	public static double SHOOTER_D = 0.33;
+	public static double SHOOTER_F = 0.029;
 	public static double SHOOTER_CLOSELOOP_RAMP_RATE = 0.0;
 	public static double SHOOTER_RAMP_RATE = 0.0;
-	public static double SHOOTER_RPM = 6000.0;
+	public static double SHOOTER_RPM = 3250.0;
 	public static int SHOOTER_IZONE = 0;
 	
 	/**
